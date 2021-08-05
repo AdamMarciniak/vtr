@@ -90,6 +90,9 @@ const startTime = Date.now()
 const voteContinuously = async () => {
   if (count < 499) {
     while (true) {
+      if (count >= 499) {
+        break
+      }
       try {
         const result = await vote()
         count++
