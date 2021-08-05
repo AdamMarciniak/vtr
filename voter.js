@@ -22,13 +22,16 @@ const disasso = async () => {
   console.log('stderr:', stderr)
 }
 
+const doDis = async () => {
+  await disasso()
+}
+
 const refreshIP = async () => {
   await asso()
 
-  setTimeout(function async() {
-    await disasso()
+  setTimeout(function () {
+    doDis()
   }, 5000)
-
 }
 
 const siteLink =
