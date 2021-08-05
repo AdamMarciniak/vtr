@@ -24,7 +24,11 @@ const disasso = async () => {
 
 const refreshIP = async () => {
   await asso()
-  await disasso()
+
+  setTimeout(function async() {
+    await disasso()
+  }, 5000)
+
 }
 
 const siteLink =
@@ -105,10 +109,18 @@ const voteContinuously = async () => {
   }
 }
 
-const run = async () => {
-  //await refreshIP()
+const doVotes = () => {
+  for (let i = 0; i < 50; i += 1) {
+    voteContinuously()
+  }
+}
 
-  voteContinuously()
+const run = async () => {
+  await refreshIP()
+
+  setTimeout(function () {
+    doVotes()
+  }, 5000)
 }
 
 run()
