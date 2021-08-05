@@ -106,7 +106,7 @@ const voteContinuously = async () => {
 }
 
 const run = async () => {
-  await refreshIP()
+  //await refreshIP()
 
   voteContinuously()
 }
