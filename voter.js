@@ -95,7 +95,7 @@ let count = 0
 const startTime = Date.now()
 
 const voteContinuously = async () => {
-  while (count < 499) {
+  while (count < 400) {
     try {
       const result = await vote()
       count++
@@ -113,7 +113,7 @@ const voteContinuously = async () => {
 }
 
 const doVotes = () => {
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     voteContinuously()
   }
 }
