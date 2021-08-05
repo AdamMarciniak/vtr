@@ -88,28 +88,21 @@ let count = 0
 const startTime = Date.now()
 
 const voteContinuously = async () => {
-  if (count < 499) {
-    while (true) {
-      if (count >= 499) {
-        break
-      }
-      try {
-        const result = await vote()
-        count++
-        const now = Date.now()
-        const msSinceStart = now - startTime
-        console.log(
-          count,
-          `(${(count / (msSinceStart / (1000 * 60))).toFixed(2)}/min)`,
-        )
-      } catch (e) {
-        console.error(e)
-        break
-      }
+  while (count < 499) {
+    try {
+      const result = await vote()
+      count++
+      const now = Date.now()
+      const msSinceStart = now - startTime
+      console.log(
+        count,
+        `(${(count / (msSinceStart / (1000 * 60))).toFixed(2)}/min)`,
+      )
+    } catch (e) {
+      console.error(e)
+      break
     }
   }
-
-  break
 }
 
 const run = async () => {
