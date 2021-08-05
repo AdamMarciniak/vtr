@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "proxy-agent": "^5.0.0"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
+  }
+}
