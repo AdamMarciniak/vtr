@@ -119,7 +119,7 @@ const doVotes = () => {
 }
 
 const run = async () => {
-  await refreshIP()
+  //await refreshIP()
 
   setTimeout(function () {
     doVotes()
