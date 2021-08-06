@@ -22,16 +22,10 @@ const disasso = async () => {
   console.log('stderr:', stderr)
 }
 
-const doDis = async () => {
-  await disasso()
-}
-
 const refreshIP = async () => {
   await asso()
-
-  setTimeout(function () {
-    doDis()
-  }, 5000)
+  await new Promise((resolve) => setTimeout(resolve, 5000))
+  await disasso()
 }
 
 const siteLink =
@@ -95,12 +89,20 @@ let count = 0
 const startTime = Date.now()
 
 const voteContinuously = async () => {
-  while (count < 400) {
+  while (count < 99) {
     try {
+      // wait 1-5 seconds
+      await new Promise((resolve) =>
+        setTimeout(resolve, 1000 + Math.random() * 4000),
+      )
+
       const result = await vote()
+
       count++
+
       const now = Date.now()
       const msSinceStart = now - startTime
+
       console.log(
         count,
         `(${(count / (msSinceStart / (1000 * 60))).toFixed(2)}/min)`,
@@ -112,18 +114,13 @@ const voteContinuously = async () => {
   }
 }
 
-const doVotes = () => {
-  for (let i = 0; i < 10; i += 1) {
-    voteContinuously()
-  }
-}
-
 const run = async () => {
-  //await refreshIP()
+  await refreshIP()
 
-  setTimeout(function () {
-    doVotes()
-  }, 5000)
+  await new Promise((resolve) => setTimeout(resolve, 5000))
+  console.log('vote starting')
+  await voteContinuously()
+  console.log('vote complete')
 }
 
 run()
