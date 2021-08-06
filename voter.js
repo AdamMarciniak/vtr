@@ -35,7 +35,7 @@ const refreshIP = async () => {
 }
 
 const siteLink =
-  'https://www.10best.com/awards/travel/best-escape-room/boxaroo-boston/'
+  'https://www.10best.com/awards/travel/best-escape-room/can-you-escape-tampa-fl/'
 const validationKeyLink = (k) =>
   `https://www.10best.com/common/ajax/voteKey.php?key=${k}`
 const voteLink = (k, v, r) =>
